@@ -1,0 +1,280 @@
+Sistema de Gestión de Catequesis – Django + MongoDB
+🟢 Descripción general
+
+Este sistema es una aplicación web desarrollada en Django que permite gestionar el proceso de catequesis utilizando MongoDB como base de datos NoSQL.
+
+Con la aplicación, el usuario puede:
+
+registrar catequizandos
+
+consultar catequizandos por parroquia o curso
+
+registrar asistencias
+
+consultar asistencias por cédula
+
+generar reportes de asistencia
+
+El sistema está diseñado para el Proyecto Integrador Fase 7 – Base de Datos II.
+
+🧭 Acceso al sistema
+
+Para ingresar a la aplicación web:
+
+Ejecutar el servidor con:
+
+python manage.py runserver
+
+
+Abrir el navegador en:
+
+http://127.0.0.1:8000/
+
+
+Se mostrará la página de inicio del sistema.
+
+🧑‍💻 Requisitos del usuario
+
+El usuario debe conocer:
+
+uso básico de navegador
+
+manejo simple de formularios
+
+identificación de cédulas y cursos
+
+No se requieren conocimientos técnicos de programación.
+
+🗂️ Menú principal del sistema
+
+En la parte superior aparece una barra de navegación, desde la cual se accede a los siguientes módulos:
+
+🏠 Inicio
+
+🧍 Registrar catequizando
+
+📋 Listar catequizandos
+
+🔎 Consultas por parroquia
+
+🔎 Consultas por curso
+
+📝 Registrar asistencia
+
+📄 Listar asistencias
+
+🔍 Consultar asistencias por cédula
+
+📊 Reporte de asistencia por persona
+
+📊 Reporte de asistencia por curso
+
+El usuario solo debe hacer clic en la opción que desea utilizar.
+
+🧍 Registro de Catequizandos
+
+Ruta de acceso:
+
+Catequizandos → Registrar
+
+Pasos para registrar:
+
+Ingresar los datos solicitados:
+
+cédula
+
+nombres
+
+apellidos
+
+teléfono
+
+parroquia
+
+curso
+
+Presionar el botón Guardar
+
+El registro queda almacenado en MongoDB en la colección:
+
+catequizandos
+
+📋 Listado de Catequizandos
+
+Ruta de acceso:
+
+Catequizandos → Listar
+
+
+Permite visualizar en tabla:
+
+cédula
+
+nombres y apellidos
+
+parroquia
+
+curso
+
+Sirve para revisar que el registro fue guardado correctamente.
+
+🔎 Consultas por Parroquia
+
+Ruta:
+
+Consultas → Por parroquia
+
+Uso:
+
+Ingresar nombre de la parroquia
+
+Clic en Buscar
+
+Se listan únicamente los catequizandos de esa parroquia
+
+🔎 Consultas por Curso
+
+Ruta:
+
+Consultas → Por curso
+
+Uso:
+
+Ingresar nombre del curso (ej. Confirmación 1)
+
+Clic en Buscar
+
+Se muestran solo los catequizandos del curso seleccionado
+
+📝 Registro de Asistencias
+
+Ruta:
+
+Asistencias → Registrar
+
+Datos solicitados:
+
+cédula del catequizando
+
+curso
+
+fecha
+
+estado:
+
+Asistió
+
+Falta
+
+Justificado
+
+observación (opcional)
+
+Los registros se guardan en la colección:
+
+asistencias
+
+📄 Listado de Asistencias
+
+Ruta:
+
+Asistencias → Listar
+
+
+Muestra tabla con:
+
+cédula
+
+curso
+
+fecha
+
+estado
+
+observación
+
+🔍 Consulta de Asistencias por Cédula
+
+Ruta:
+
+Asistencias → Consultar por cédula
+
+Pasos:
+
+Ingresar número de cédula
+
+Clic en Buscar
+
+Se muestran todas las asistencias asociadas a esa persona
+
+📊 Reporte: Total de Asistencias / Faltas por Persona
+
+Ruta:
+
+Reportes → Asistencia por persona
+
+
+El sistema calcula automáticamente:
+
+total de asistencias
+
+total de faltas
+
+total de justificadas
+
+Para la cédula ingresada.
+
+📊 Reporte: Asistencia por Curso
+
+Ruta:
+
+Reportes → Asistencia por curso
+
+
+Muestra:
+
+cantidad de asistencias
+
+faltas
+
+justificadas
+
+para un curso específico.
+
+💾 Base de Datos NoSQL utilizada
+
+Base:
+
+catequesisDB
+
+
+Colecciones:
+
+catequizandos
+
+catequistas
+
+cursos
+
+parroquias
+
+asistencias
+
+🛠️ Errores comunes y soluciones
+Error	Posible causa	Solución
+No carga la página	servidor no iniciado	ejecutar runserver
+no guarda datos	MongoDB apagado	iniciar servicio Mongo
+no encuentra registros	cédula o curso mal escrito	verificar datos
+plantilla no carga CSS	carpeta static mal configurada	revisar ruta en base.html
+🧾 Créditos del proyecto
+
+Mateo Ortega Vacas
+Andres Chicaiza 
+
+Desarrollado como parte del Proyecto Integrador – Base de Datos II
+
+Framework: Django
+
+Base de datos: MongoDB
+
+Lenguaje: Python
