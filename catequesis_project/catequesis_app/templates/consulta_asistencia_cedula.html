@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Consultar Asistencias por Cédula</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    Cédula:
+    <input type="text" name="cedula" value="{{ cedula }}">
+    <button type="submit">Buscar</button>
+</form>
+
+<hr>
+
+<h3>Resultados</h3>
+
+<table border="1">
+    <tr>
+        <th>Cédula</th>
+        <th>Curso</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+        <th>Observación</th>
+    </tr>
+
+    {% for a in resultados %}
+    <tr>
+        <td>{{ a.cedula }}</td>
+        <td>{{ a.curso }}</td>
+        <td>{{ a.fecha }}</td>
+        <td>{{ a.estado }}</td>
+        <td>{{ a.observacion }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">No se encontraron asistencias para la cédula ingresada</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

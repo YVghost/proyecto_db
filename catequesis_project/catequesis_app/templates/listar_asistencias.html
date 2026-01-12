@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Listado de Asistencias</h2>
+
+<table border="1">
+    <tr>
+        <th>Cédula</th>
+        <th>Curso</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+        <th>Observación</th>
+    </tr>
+
+    {% for a in asistencias %}
+    <tr>
+        <td>{{ a.cedula }}</td>
+        <td>{{ a.curso }}</td>
+        <td>{{ a.fecha }}</td>
+        <td>{{ a.estado }}</td>
+        <td>{{ a.observacion }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">No hay asistencias registradas</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

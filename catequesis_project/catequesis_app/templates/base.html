@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <title>Gestión de Catequesis</title>
 </head>
+
+
 <body>
 
 <h1>Sistema de Gestión de Catequesis</h1>
@@ -11,12 +15,24 @@
     <a href="/">Inicio</a> |
     <a href="/catequizandos/nuevo/">Registrar Catequizando</a> |
     <a href="/catequizandos/listar/">Listar Catequizandos</a>
+    <a href="/consultas/parroquia/">Consulta por Parroquia</a> |
+    <a href="/consultas/curso/">Consulta por Curso</a>
+    <a href="/asistencias/nueva/">Registrar Asistencia</a> |
+    <a href="/asistencias/listar/">Listar Asistencias</a> |
+    <a href="/asistencias/consulta/cedula/">Consulta de Asistencias por Cédula</a> |
+    <a href="/reportes/asistencia/persona/">Reporte Asistencia por Persona</a> |
+    <a href="/reportes/asistencia/curso/">Reporte Asistencia por Curso</a> |
+
+
 </nav>
 
 <hr>
 
-{% block content %}
-{% endblock %}
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
 
 </body>
 </html>

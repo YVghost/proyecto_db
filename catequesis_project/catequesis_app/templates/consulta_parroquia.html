@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Consultar por Parroquia</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    Parroquia:
+    <input type="text" name="parroquia" value="{{ parroquia }}">
+    <button type="submit">Buscar</button>
+</form>
+
+<hr>
+
+<h3>Resultados</h3>
+
+<table border="1">
+    <tr>
+        <th>Cédula</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Parroquia</th>
+        <th>Curso</th>
+    </tr>
+
+    {% for c in resultados %}
+    <tr>
+        <td>{{ c.cedula }}</td>
+        <td>{{ c.nombres }}</td>
+        <td>{{ c.apellidos }}</td>
+        <td>{{ c.parroquia }}</td>
+        <td>{{ c.curso }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">No se encontraron resultados</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

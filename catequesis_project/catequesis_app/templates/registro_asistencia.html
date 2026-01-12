@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Registrar Asistencia</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    Cédula del Catequizando:
+    <input type="text" name="cedula"><br>
+
+    Curso:
+    <input type="text" name="curso"><br>
+
+    Fecha:
+    <input type="date" name="fecha"><br>
+
+    Estado de Asistencia:
+    <select name="estado">
+        <option value="Asistió">Asistió</option>
+        <option value="Falta">Falta</option>
+        <option value="Justificado">Justificado</option>
+    </select><br>
+
+    Observación:
+    <input type="text" name="observacion"><br>
+
+    <button type="submit">Guardar asistencia</button>
+
+</form>
+
+{% endblock %}

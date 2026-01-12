@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Reporte de Asistencia por Persona</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    Cédula:
+    <input type="text" name="cedula" value="{{ cedula }}">
+    <button type="submit">Generar reporte</button>
+</form>
+
+{% if cedula %}
+<hr>
+<h3>Resultados para cédula: {{ cedula }}</h3>
+
+<table border="1">
+    <tr>
+        <th>Estado</th>
+        <th>Total</th>
+    </tr>
+    <tr>
+        <td>Asistió</td>
+        <td>{{ resumen.Asistió }}</td>
+    </tr>
+    <tr>
+        <td>Falta</td>
+        <td>{{ resumen.Falta }}</td>
+    </tr>
+    <tr>
+        <td>Justificado</td>
+        <td>{{ resumen.Justificado }}</td>
+    </tr>
+</table>
+{% endif %}
+
+{% endblock %}
