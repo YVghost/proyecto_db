@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Registrar Catequizando</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    Cédula: <input type="text" name="cedula"><br>
+    Nombres: <input type="text" name="nombres"><br>
+    Apellidos: <input type="text" name="apellidos"><br>
+    Teléfono: <input type="text" name="telefono"><br>
+    Parroquia: <input type="text" name="parroquia"><br>
+    Curso: <input type="text" name="curso"><br>
+
+    <button type="submit">Guardar</button>
+</form>
+
+{% endblock %}

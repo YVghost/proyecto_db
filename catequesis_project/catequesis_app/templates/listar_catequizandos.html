@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Lista de Catequizandos</h2>
+
+<table border="1">
+    <tr>
+        <th>Cédula</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Parroquia</th>
+        <th>Curso</th>
+    </tr>
+
+    {% for c in catequizandos %}
+    <tr>
+        <td>{{ c.cedula }}</td>
+        <td>{{ c.nombres }}</td>
+        <td>{{ c.apellidos }}</td>
+        <td>{{ c.parroquia }}</td>
+        <td>{{ c.curso }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
